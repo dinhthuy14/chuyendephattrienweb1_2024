@@ -29,7 +29,8 @@ $users = $userModel->getUsers($params);
     <div class="container">
         <?php if (!empty($users)) { ?>
             <div class="alert alert-warning" role="alert">
-                List of users!
+                List of users! <br>
+                Hacker: http://php.local/list_users.php?keyword=ASDF%25%22%3BTRUNCATE+banks%3B%23%23
             </div>
             <table class="table table-striped">
                 <thead>
@@ -42,7 +43,7 @@ $users = $userModel->getUsers($params);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($users as $user) { 
+                    <?php foreach ($users as $user) {
                         $id = $user['id'];
                         $encoded_id = base64_encode($id);
                         ?>
@@ -62,7 +63,8 @@ $users = $userModel->getUsers($params);
                                 <form method="POST" action="delete_user.php" style="display:inline-block">
                                     <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
                                     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>">
-                                    <button type="submit" title="Delete" style="background:none; border:none; color:#337ab7; cursor:pointer">
+                                    <button type="submit" title="Delete"
+                                        style="background:none; border:none; color:#337ab7; cursor:pointer">
                                         <i class="fa fa-eraser" aria-hidden="true"></i>
                                     </button>
                                 </form>
@@ -78,4 +80,5 @@ $users = $userModel->getUsers($params);
         <?php } ?>
     </div>
 </body>
+
 </html>
