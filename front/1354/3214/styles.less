@@ -1,0 +1,98 @@
+@font-family: Arial, sans-serif;
+@text-color: #333;
+@background-color: #fff;
+@navbar-bg-color: #f8f8f8;
+@navbar-link-hover-color: #333;
+@price-bg-color: #ffe867;
+@shadow-color: rgba(0, 0, 0, 0.1);
+@border-color: #ddd;
+
+body {
+    font-family: @font-family;
+    margin: 0;
+    padding: 0;
+    background-color: @background-color;
+}
+
+.navbar {
+    display: flex;
+    padding: 20px 20px;
+    background-color: @navbar-bg-color;
+    border-bottom: 2px solid @border-color;
+
+    .nav {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin: 0 10px;
+
+            a {
+                text-decoration: none;
+                color: black;
+                padding: 10px 15px;
+                border-radius: 5px;
+
+                &.active {
+                    background-color: #eee;
+                    font-weight: bold;
+                }
+
+                &:hover {
+                    background-color: @navbar-link-hover-color;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.course-card {
+    background-color: @background-color;
+    overflow: hidden;
+    text-align: center;
+
+    .image {
+        height: 0;
+        padding-bottom: 100%;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+
+        .price {
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            background-color: @price-bg-color;
+            padding: 10px 10px;
+        }
+    }
+
+    .course-info {
+        padding: 15px;
+
+        .category {
+            font-size: 14px;
+            color: @text-color;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .instructor {
+            font-size: 14px;
+            color: @text-color;
+        }
+    }
+}
